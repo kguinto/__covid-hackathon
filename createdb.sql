@@ -1,8 +1,8 @@
 -- Run when the image is started up
 
--- CREATE DATABASE help_directory;
+CREATE DATABASE help_directory;
 
--- \connect help_directory;
+\connect help_directory;
 
 CREATE TABLE organizations(
 	id int PRIMARY KEY NOT NULL,

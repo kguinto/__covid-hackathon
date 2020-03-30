@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   web:
-    build: .
+    image: covid-hackathon-web:latest
     volumes:
       - ./services/web/:/usr/src/app/
     ports:

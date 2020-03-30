@@ -1,13 +1,15 @@
 docker-compose down
 
 # Build UI
-(cd react-app; ./build.sh)
+# (cd react-app; ./build.sh)
+# Build API
+# (cd flask-app; ./build.sh)
 # Build All Docker Images
 docker-compose build
 
 # Run Flask App and Postgres
-docker-compose up
+docker-compose up -d 
 
 # Create tables and insert dummy data
-docker exec -it covid-hackathon_db_1 psql -h 127.0.0.1 -p 5432 help_directory -U postgres -f createdb.sql
-docker exec -it covid-hackathon_db_1 psql -h 127.0.0.1 -p 5432 help_directory -U postgres -f insert_dummy_data.sql
+psql -h 127.0.0.1 -p 5003 help_directory -U postgres -f createdb.sql
+psql -h 127.0.0.1 -p 5003 help_directory -U postgres -f insert_dummy_data.sql
