@@ -17,15 +17,16 @@ services:
     environment:
       - "API_URL=http://web:5000"
   db:
-    image: postgres:latest
+    image: covid-hackathon-db:latest
     ports:
-      - 5432:5432
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - 5003:5432
+    # volumes: # ???
+    #   - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=help_directory
       - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_PASSWORD=docker
     restart: always
     networks:
       - default
